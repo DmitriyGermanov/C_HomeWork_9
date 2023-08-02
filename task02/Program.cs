@@ -9,20 +9,21 @@ int GetNumber(string text) //Функция запрашивает от поль
     return int.Parse(Console.ReadLine()!);
 }
 
-int Ackermann(int m, int n)  //Функция аккермана (себе, при 1/1 сработает в последнем return 2 раза)
+int Ackermann(int m, int n) //Функция аккермана (себе, при 1/1 сработает в последнем return 2 раза)
 {
     if (m == 0)
         return n + 1;
     if (m > 0 && n == 0)
         return Ackermann(m - 1, 1);
-    if (m > 0 && n > 0)  // 2   2        return 
+    if (m > 0 && n > 0)
         return Ackermann(m - 1, Ackermann(m, n - 1));
 
-        else
+    else
         return 0;
 }
 int m = GetNumber("Введите целое неотрицательное число m:");
 int n = GetNumber("Введите целое неотрицательное число n:");
-int result = Ackermann(m,n);
+int result = Ackermann(m, n);
+
 Console.WriteLine($"Для m = {m} и n = {n} результат = {result}");
 

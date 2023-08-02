@@ -12,12 +12,13 @@ int GetNumber(string text) //Функция запрашивает от поль
 int SummOfLine(int m, int n) //Функция находит сумму элементов в промежутке от m до n
 {
     if (m <= n)
-    return m + SummOfLine(m+1, n);
-    else 
-    return 0;
+        return m + SummOfLine(m + 1, n);
+    else
+        return 0;
 }
 
-int summ = SummOfLine(GetNumber("Введите начальное значение промежутка:"),
-                                                             GetNumber("Введите последнее значение промежутка:"));
+int m = GetNumber("Введите начальное значение промежутка:");
+int n = GetNumber("Введите последнее значение промежутка:");
+int summ = SummOfLine(m, n);
 
-Console.WriteLine($"Сумма элементов промежутка = {summ}");
+Console.WriteLine($"Сумма элементов промежутка от {m} до {n} = {summ}");

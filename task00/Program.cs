@@ -9,25 +9,23 @@ int GetNumber(string text) //Функция запрашивает от поль
     return int.Parse(Console.ReadLine()!);
 }
 
-
-
-string SerialOfNubmers(int n) // Функция выводит последовательность Четных чисел от N до 2
+string SerialOfNumbers(int n) // Функция выводит последовательность Четных чисел от N до 2
 {
     if (n > 0)
     {
         if (n % 2 == 0)
         {
             if (n == 2)
-                return Convert.ToString(n) + SerialOfNubmers(n - 1);
+                return Convert.ToString(n) + SerialOfNumbers(n - 1);
             else
-                return Convert.ToString(n) + ", " + SerialOfNubmers(n - 1);
+                return Convert.ToString(n) + ", " + SerialOfNumbers(n - 1);
         }
-        else return
-        SerialOfNubmers(n - 1);
+        else
+            return SerialOfNumbers(n - 1);
     }
     else
         return "";
 }
 
 int n = GetNumber("Введите длину промежутка N: ");
-Console.WriteLine(SerialOfNubmers(n));
+Console.WriteLine($"N = {n} -> {SerialOfNumbers(n)}");
